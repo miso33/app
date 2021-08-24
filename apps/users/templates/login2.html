@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
+{% endblock stylesheets %}
+
+
+{% block content %}
+<div class="col-lg-4">
+    <form action="/url/to/submit/" method="post" class="form">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        {% buttons %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock content %}

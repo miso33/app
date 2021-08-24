@@ -1,0 +1,1 @@
+from .MyAccountAdapter import MyAccountAdapter

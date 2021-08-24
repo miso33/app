@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load bootstrap5 %}
+{% load static %}
+
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" type="text/css" href="{% static 'users/styles.css' %}">
+{% endblock stylesheets %}
+
+
+{% block content %}
+<div class="my-login-page">
+    <section class="h-100">
+        <div class="container h-100">
+            <div class="row justify-content-md-center h-100">
+                <div class="card-wrapper">
+
+                    <div class="card fat">
+                        <div class="card-body">
+                            <h4 class="card-title">Login</h4>
+                            <form action="/accounts/login/" method="post" class="form">
+                                {% csrf_token %}
+
+                                {% bootstrap_form form %}
+                                {% buttons %}
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                                {% endbuttons %}
+                            </form>
+                        </div>
+                    </div>
+                    <div class="footer">
+                        Copyright &copy; 2021 &mdash; Scrypta s.r.o.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock content %}
